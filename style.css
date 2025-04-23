@@ -364,6 +364,7 @@ text-align: center;
 font-size: 28px;
 padding: 20px;
 line-height: 1.5;
+flex-direction: column;
 }
 
 .list-style{
@@ -576,8 +577,7 @@ button[type="submit"]:hover {
   color: #3b0fdc;
 }
 
-/* Hamburger Menu (Hidden on desktop) */
-/* Navbar Styling */
+//* Base Styles – Desktop First */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -609,7 +609,23 @@ button[type="submit"]:hover {
   margin: 3px;
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+}
 
+.hamburger span {
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Unified Mobile/Tablet Styles */
 @media (max-width: 992px) {
   .about-container,
   .skills-container,
@@ -646,33 +662,16 @@ button[type="submit"]:hover {
     padding: 15px;
   }
 
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .hero-name {
-    font-size: 2rem;
-  }
-
-  .hero-role {
-    font-size: 1rem;
-  }
-
-  .skills-heading {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 576px) {
   .hero-name {
     font-size: 1.6rem;
   }
 
   .hero-role {
     font-size: 0.9rem;
+  }
+
+  .skills-heading {
+    font-size: 22px;
   }
 
   .profile-img {
@@ -688,56 +687,18 @@ button[type="submit"]:hover {
     font-size: 11px;
     padding: 4px 8px;
   }
-}
 
-@media (max-width: 768px) {
   .about-right ul li {
     font-size: 16px;
     display: flex;
     flex-direction: column;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-right ul li {
-    font-size: 18px;
     margin-bottom: 10px;
-    flex-direction: column;
   }
-}
 
-@media (max-width: 768px) {
-  .progress-bar {
-    width: 80%;
-
-  }
-}
-
-@media (max-width: 480px) {
   .progress-bar {
     width: 80%;
   }
-}
 
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  height: 3px;
-  background-color: #fff;
-  border-radius: 2px;
-  transition: 0.3s ease;
-}
-
-/* Responsive Styles for Mobile */
-@media (max-width: 768px) {
   .hamburger {
     display: flex;
   }
@@ -746,21 +707,29 @@ button[type="submit"]:hover {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%; /* Start hidden on the right */
+    right: -100%;
     height: 100vh;
     width: 75%;
     max-width: 300px;
-    background: linear-gradient(to bottom, #2b6e44, #1b1b1b); /* green to dark */
+    background: linear-gradient(to bottom, #2b6e44, #1b1b1b);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* aligns to top */
+    justify-content: flex-start;
     align-items: flex-start;
-    padding: 60px 20px;
-    height: 100vh;
+    padding: 60px 32px 0 32px;
     gap: 24px;
-    padding-left: 32px;
     transition: right 0.3s ease-in-out;
     z-index: 999;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .nav-links.active {
+    right: 0;
   }
 
   .nav-close {
@@ -771,22 +740,7 @@ button[type="submit"]:hover {
     color: white;
     cursor: pointer;
   }
-  
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  /* When menu is open */
-  .nav-links.active {
-    right: 0; /* Slide into view from the right */
-  }
-  
 
-
-  /* Hamburger animation when active */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
