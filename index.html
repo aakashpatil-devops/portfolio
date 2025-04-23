@@ -15,7 +15,16 @@
   <header class="header" id="navbar">
     <div class="container">
     <div class="logo">Aakash's CV</div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
   <nav class="nav-links" id="navLinks">
+  <span class="nav-close" onclick="toggleMenu()">&times;</span>
     <a href="#about">ABOUT</a>
     <a href="#skills">SKILLS</a>
     <a href="#experience">EXPERIENCE</a>
@@ -334,6 +343,38 @@
 
   mobileMenu.addEventListener("click", () => {
     navList.classList.toggle("active");
+  });
+</script>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const links = document.querySelectorAll('.nav-links a');
+  const navClose = document.querySelector('.nav-close');
+
+  // Toggle menu (open/close)
+  function toggleMenu() {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+
+  // Hamburger click toggles menu
+  hamburger.addEventListener('click', toggleMenu);
+
+  // Close button (×) click toggles menu
+  if (navClose) {
+  navClose.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active'); // this was missing!
+  });
+}
+
+// Clicking any nav link closes the menu
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
   });
 </script>
 
