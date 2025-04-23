@@ -361,7 +361,7 @@ flex-basis: 25%;
 background-color: #00A86B;
 color: white;
 text-align: center;
-font-size: 28px;
+font-size: 20px;
 padding: 20px;
 line-height: 1.5;
 flex-direction: column;
@@ -413,7 +413,7 @@ flex-direction: column;
 /* University name */
 .right-container .university {
   color: #010000; /* Slightly lighter gray from the screenshot */
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: -2px;
@@ -751,5 +751,12 @@ button[type="submit"]:hover {
 
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* Hide close button on large screens */
+@media (min-width: 993px) {
+  .nav-close {
+    display: none;
   }
 }
