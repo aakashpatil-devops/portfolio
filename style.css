@@ -404,7 +404,7 @@ flex-direction: column;
 .right-container h5 {
   /*color: #070707; */
   color: #3e3c3c;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: -5px;
   margin-bottom: -15px;
   font-weight: normal; /* disables bold */  
@@ -577,7 +577,7 @@ button[type="submit"]:hover {
   color: #3b0fdc;
 }
 
-//* Base Styles – Desktop First */
+/* Base Styles – Desktop First */
 .navbar {
   display: flex;
   justify-content: space-between;
